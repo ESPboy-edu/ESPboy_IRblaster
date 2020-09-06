@@ -212,7 +212,7 @@ void ESPboyGUI::drawConsole(uint8_t onlyLastLine) {
     tft->fillRect(1, (lines-1) * GUI_FONT_HEIGHT, 126, GUI_FONT_HEIGHT, TFT_BLACK);
 #else
   if (!onlyLastLine)
-    tft->fillRect(1, 1, 126, lines * GUI_FONT_HEIGHT+2, TFT_BLACK);
+    tft->fillRect(1, 1, 126, lines * GUI_FONT_HEIGHT+4, TFT_BLACK);
   else
     tft->fillRect(1, (lines-1) * GUI_FONT_HEIGHT+4, 126, GUI_FONT_HEIGHT, TFT_BLACK);
 #endif
