@@ -19,7 +19,6 @@ https://hackaday.io/project/164830-espboy-games-iot-stem-for-education-fun
 #include <ESP8266WiFi.h>
 #include "lib/ESPboyLogo.h"
 #include "ESPboyGUI.h"
-#include "ESPboyOTA.h"
 
 
 #define PAD_LEFT        0x01 //L
@@ -47,7 +46,7 @@ https://hackaday.io/project/164830-espboy-games-iot-stem-for-education-fun
 Adafruit_MCP23017 mcp;
 TFT_eSPI tft;
 ESPboyGUI* GUIobj = NULL;
-ESPboyOTA* OTAobj = NULL;
+
 
 IRsend irsend(kSEND_PIN);
 IRrecv irrecv(kRECIEVE_PIN, kCAPT_BUF, kTIMEOUT, false);
@@ -173,9 +172,6 @@ void setup() {
 
 //GUI obj init
   GUIobj=new ESPboyGUI(&tft, &mcp);
-
-//OTA init
-  if (GUIobj->getKeys()&PAD_ACT || GUIobj->getKeys()&PAD_ESC) {OTAobj=new ESPboyOTA(GUIobj);}
 
 //IR init
   irrecv.enableIRIn();  // Start up the IR receiver.
